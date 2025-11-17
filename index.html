@@ -1,263 +1,323 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Технологии дополненной реальности в устройствах Apple</title>
+    <title>Технологии AR в Apple</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shower/3.2.0/styles/simple.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/@shower/ribbon@3.0.0/styles/styles.css">
+    
     <style>
+        /* Ваши настройки для картинок и расположения */
         .shower {
             --slide-ratio: calc(16 / 9);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-        
-        .slide {
-            padding: 50px;
-            background: white;
-            color: #333;
+        /* Стили для слайда-обложки */
+        #cover {
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .slide h2 {
-            color: #000;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .slide ul {
-            margin-left: 20px;
-        }
-        
-        .slide li {
-            margin-bottom: 15px;
-        }
-        
-        .author {
-            text-align: right;
-            margin-top: 100px;
-            font-size: 1.2em;
-        }
-        
-        .thank-you {
-            text-align: center;
-            padding-top: 150px;
-        }
-        
-        .thank-you h2 {
+        #cover h2 {
+            color: white;
             font-size: 3em;
+            text-align: center;
+            margin: 0 0 0.5em;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
-        
-        .image-slide {
+        #cover p {
+            color: #ddd;
+            font-size: 1.5em;
             text-align: center;
         }
+        #cover img.cover {
+            opacity: 0.6; /* Затемнение фона обложки */
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
         
-        .image-slide img {
-            max-width: 100%;
-            max-height: 500px;
+        /* Сетки для контента */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            height: 80%;
+        }
+        .three-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Картинки */
+        .full-img {
+            width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            object-fit: cover;
         }
         
-        .content-with-image {
-            display: flex;
-            align-items: center;
+        /* Иконки в списке */
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
-        
-        .content-with-image .text {
-            flex: 1;
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .icon-img {
+            height: 60px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .feature-item strong {
+            color: #007AFF;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Карточки (как на 5 слайде) */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            height: 70%;
+            margin-top: 20px;
+        }
+        .card-block {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            color: white;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        .card-block::before {
+            content: '';
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.5); /* Затемнение подложки */
+            z-index: 1;
+        }
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
         }
         
-        .content-with-image .image {
-            flex: 1;
+        /* Финальный слайд */
+        #end h2, #end p {
+            color: white;
             text-align: center;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
         }
-        
-        .bullet-points {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
+        #end h2 { font-size: 4em; margin-top: 150px; }
+        #end p { font-size: 2em; }
     </style>
 </head>
 <body class="shower list">
 
     <header class="caption">
-        <h1>Технологии дополненной реальности в устройствах Apple</h1>
+        <h1>Технологии AR в Apple</h1>
         <p>Васильев Сергей, ИУ3-31М</p>
     </header>
 
-    <!-- Титульный слайд -->
-    <section class="slide" id="title">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Технологии дополнённой реальности в устройствах Apple</h2>
-                <p class="author">Васильев Сергей<br>ИУ3-31М</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image1.png" alt="Технологии AR в Apple">
-            </div>
-        </div>
+    <section class="slide" id="cover">
+        <img class="cover" src="pictures/image1.png" alt="Фон">
+        <h2>Технологии дополнённой реальности<br>в устройствах Apple</h2>
+        <p>Васильев Сергей, ИУ3-31М</p>
     </section>
 
-    <!-- Введение в AR -->
     <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Введение в AR</h2>
-                <p>Дополнённая реальность (AR) — это технология, накладывающая цифровые объекты на реальный мир.</p>
-                <p>Apple активно развивает AR с 2017 года, когда был представлен ARKit. AR интегрирована в iPhone, iPad, Mac и новую гарнитуру Vision Pro и используется в образовании, развлечениях, навигации и других областях.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image2.png" alt="Введение в AR">
-            </div>
-        </div>
-    </section>
-
-    <!-- Подход Apple к AR -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Подход Apple к AR</h2>
-                <ul class="bullet-points">
-                    <li><strong>Естественное взаимодействие:</strong> Создание максимально интуитивного взаимодействия человека и цифрового контента.</li>
-                    <li><strong>Глубокая интеграция:</strong> Тесная связь программного обеспечения с аппаратными средствами.</li>
-                    <li><strong>Высокое качество:</strong> Точное отслеживание движения и распознавание объектов в пространстве.</li>
-                    <li><strong>Мощные инструменты:</strong> Предоставление разработчикам простых и мощных инструментов для создания AR-приложений.</li>
+        <h2>Введение в AR</h2>
+        <div class="two-columns">
+            <div>
+                <p><strong>Дополнённая реальность (AR)</strong> — это технология, накладывающая цифровые объекты на реальный мир.</p>
+                <ul>
+                    <li>Apple активно развивает AR с 2017 года (релиз ARKit).</li>
+                    <li>Интеграция в iPhone, iPad, Mac и Vision Pro.</li>
                 </ul>
             </div>
-            <div class="image">
-                <img src="pictures/image3.png" alt="Подход Apple к AR">
+            <img src="pictures/image3.png" class="full-img" alt="iPad AR">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Ключевые принципы</h2>
+        <div class="features-list">
+            <div class="feature-item">
+                <img src="pictures/image4.png" class="icon-img" alt="Icon">
+                <div>
+                    <strong>Естественное взаимодействие</strong>
+                    Интуитивное управление контентом.
+                </div>
+            </div>
+            <div class="feature-item">
+                <img src="pictures/image5.png" class="icon-img" alt="Icon">
+                <div>
+                    <strong>Глубокая интеграция</strong>
+                    Связь ПО и аппаратной части.
+                </div>
+            </div>
+            <div class="feature-item">
+                <img src="pictures/image6.png" class="icon-img" alt="Icon">
+                <div>
+                    <strong>Высокое качество</strong>
+                    Точное отслеживание объектов.
+                </div>
+            </div>
+            <div class="feature-item">
+                <img src="pictures/image7.png" class="icon-img" alt="Icon">
+                <div>
+                    <strong>Мощные инструменты</strong>
+                    Удобство для разработчиков.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ARKit: Основной фреймворк -->
     <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>ARKit: Основной фреймворк</h2>
-                <p>ARKit — это главный инструмент Apple для работы с дополнённой реальностью. Он объединяет алгоритмы отслеживания пространства, распознавания плоскостей и анализа изображения.</p>
-                <p>С его помощью приложения могут точно определять, где находятся поверхности, и размещать на них виртуальные объекты. Он также поддерживает машинное зрение, карты глубины и 3D-сканирование.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image4.png" alt="ARKit фреймворк">
-            </div>
-        </div>
-    </section>
-
-    <!-- RealityKit и инструменты разработки -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>RealityKit и инструменты разработки</h2>
-                <h3>RealityKit</h3>
-                <p>Высокоуровневая библиотека для создания реалистичных 3D-сцен. Включает физику, анимации и фотореалистичные материалы.</p>
-                
-                <h3>Reality Composer Pro</h3>
-                <p>Визуальный редактор, который позволяет создавать сложные AR-сцены без программирования, используя drag-and-drop.</p>
-                
-                <h3>Результат</h3>
-                <p>Значительное снижение порога входа, делая AR-разработку доступной большему количеству специалистов.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image5.png" alt="Инструменты разработки">
-            </div>
-        </div>
-    </section>
-
-    <!-- Аппаратная база: Камеры и датчики -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Аппаратная база: Камеры и датчики</h2>
-                <p>Высокое качество AR в устройствах Apple обеспечивается мощной аппаратной базой: качественными камерами, гироскопами, акселерометрами и датчиками движения.</p>
-                <p>Эти компоненты позволяют устройству точно понимать, где оно находится в пространстве и как движется. Благодаря этому виртуальные объекты выглядят стабильными и естественно вписываются в реальность.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image6.png" alt="Аппаратная база">
-            </div>
-        </div>
-    </section>
-
-    <!-- Ключевой элемент: LiDAR-сканер -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Ключевой элемент: LiDAR-сканер</h2>
-                <p>Одним из ключевых аппаратных элементов современных iPhone Pro и iPad Pro является LiDAR-сканер.</p>
-                <p>LiDAR измеряет расстояние до объектов с помощью лазерных импульсов и создаёт точную карту глубины помещения. Это позволяет мгновенно и очень точно понимать геометрию окружения.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image7.png" alt="LiDAR сканер">
-            </div>
-        </div>
-    </section>
-
-    <!-- Apple Vision Pro и пространственные вычисления -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Apple Vision Pro и пространственные вычисления</h2>
-                <p>Это гарнитура, объединяющая AR и VR. Виртуальные элементы накладываются на реальный мир, но могут и полностью его заменять.</p>
-                <p>Vision Pro отслеживает движение глаз, рук и головы, что позволяет взаимодействовать с интерфейсом без контроллеров. Эта платформа открывает новые возможности для работы, обучения и развлечений.</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image8.png" alt="Apple Vision Pro">
-            </div>
-        </div>
-    </section>
-
-    <!-- Примеры применения AR в экосистеме Apple -->
-    <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Примеры применения AR в экосистеме Apple</h2>
-                <ul class="bullet-points">
-                    <li><strong>Образование:</strong> Визуализация анатомии, космоса, исторических объектов.</li>
-                    <li><strong>Дизайн и E-commerce:</strong> Размещение мебели и виртуальная примерка товаров.</li>
-                    <li><strong>Игры и развлечения:</strong> Создание интерактивных миров на основе реальной среды.</li>
+        <h2>Подход Apple к AR: ARKit</h2>
+        <div class="two-columns">
+            <div>
+                <p><strong>ARKit</strong> — основной фреймворк Apple.</p>
+                <ul>
+                    <li>Объединяет данные с камер и датчиков движения.</li>
+                    <li>Распознает поверхности, свет и лица.</li>
+                    <li>Использует машинное обучение для анализа сцены.</li>
                 </ul>
             </div>
-            <div class="image">
-                <img src="pictures/image9.png" alt="Примеры применения AR">
+            <img src="pictures/image8.png" class="full-img" alt="ARKit">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты разработки</h2>
+        <div class="cards-container">
+            <div class="card-block" style="background-image: url('pictures/image9.png');">
+                <div class="card-content">
+                    <img src="pictures/image12.png" class="card-icon" alt="RealityKit">
+                    <strong>RealityKit</strong>
+                    <p><small>Фотореалистичный рендеринг, физика и анимация.</small></p>
+                </div>
+            </div>
+            <div class="card-block" style="background-image: url('pictures/image10.png');">
+                <div class="card-content">
+                    <img src="pictures/image13.png" class="card-icon" alt="Composer">
+                    <strong>Reality Composer</strong>
+                    <p><small>Сборка AR-сцен без написания сложного кода.</small></p>
+                </div>
+            </div>
+            <div class="card-block" style="background-image: url('pictures/image11.png');">
+                <div class="card-content">
+                    <img src="pictures/image14.png" class="card-icon" alt="Result">
+                    <strong>Результат</strong>
+                    <p><small>Низкий порог входа для создания AR-приложений.</small></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Преимущества подхода Apple -->
     <section class="slide">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Преимущества подхода Apple</h2>
-                <h3>Ключевые преимущества</h3>
-                <h4>Сильные стороны экосистемы</h4>
-                <ul class="bullet-points">
-                    <li><strong>Интеграция:</strong> Глубокая интеграция ПО (ARKit) и аппаратных средств (LiDAR) обеспечивает высокую точность и стабильность.</li>
-                    <li><strong>Экосистема:</strong> Множество устройств и мощные инструменты для разработчиков способствуют быстрому росту.</li>
-                    <li><strong>Приватность:</strong> Высокое внимание к приватности данных пользователя повышает доверие.</li>
+        <h2>Аппаратная база</h2>
+        <div class="two-columns">
+            <img src="pictures/image15.png" class="full-img" alt="Cameras">
+            <div>
+                <p>Высокая точность AR невозможна без железа:</p>
+                <ul>
+                    <li>Калиброванные камеры и датчики.</li>
+                    <li>Мощные процессоры (Neural Engine) для обработки ML.</li>
+                    <li>Точные гироскопы и акселерометры.</li>
                 </ul>
             </div>
-            <div class="image">
-                <img src="pictures/image10.png" alt="Преимущества Apple">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>LiDAR-сканер</h2>
+        <div class="two-columns">
+            <div>
+                <p><strong>LiDAR</strong> (Light Detection and Ranging)</p>
+                <ul>
+                    <li>Измеряет время возвращения отраженного света.</li>
+                    <li>Создает мгновенную карту глубины пространства.</li>
+                    <li>Обеспечивает работу AR даже в темноте и быстрое наложение объектов.</li>
+                </ul>
+            </div>
+            <img src="pictures/image16.png" class="full-img" alt="LiDAR">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Apple Vision Pro</h2>
+        <div style="text-align:center">
+            <img src="pictures/image17.png" style="height: 300px; object-fit:contain;" alt="Vision Pro">
+        </div>
+        <ul>
+            <li>Эра "пространственных вычислений".</li>
+            <li>Управление взглядом, руками и голосом.</li>
+            <li>Полное погружение или смешанная реальность одним поворотом колесика.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Примеры применения</h2>
+        <div class="three-columns">
+            <div>
+                <img src="pictures/image18.png" class="full-img" style="height:180px;" alt="Edu">
+                <p><strong>Образование</strong><br><small>Изучение анатомии</small></p>
+            </div>
+            <div>
+                <img src="pictures/image19.png" class="full-img" style="height:180px;" alt="Design">
+                <p><strong>Дизайн</strong><br><small>Примерка мебели</small></p>
+            </div>
+            <div>
+                <img src="pictures/image20.png" class="full-img" style="height:180px;" alt="Games">
+                <p><strong>Игры</strong><br><small>AR-квесты</small></p>
             </div>
         </div>
     </section>
 
-    <!-- Завершающий слайд -->
-    <section class="slide thank-you">
-        <div class="content-with-image">
-            <div class="text">
-                <h2>Спасибо</h2>
-                <p>Вопросы?</p>
-            </div>
-            <div class="image">
-                <img src="pictures/image11.png" alt="Спасибо за внимание">
-            </div>
-        </div>
+    <section class="slide">
+        <h2>Преимущества подхода Apple</h2>
+        <ul>
+            <li><strong>Экосистема:</strong> Единый стек технологий для всех устройств.</li>
+            <li><strong>Приватность:</strong> Обработка данных с камер происходит на устройстве.</li>
+            <li><strong>Массовость:</strong> Миллионы устройств с поддержкой AR уже у пользователей.</li>
+        </ul>
+    </section>
+
+    <section class="slide" id="end">
+        <img class="cover" src="pictures/image21.png" alt="Фон">
+        <h2>Спасибо за внимание!</h2>
+        <p>Вопросы?</p>
     </section>
 
     <div class="progress"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/shower/3.2.0/shower.min.js"></script>
+    <script src="https://unpkg.com/@shower/core@3.0.0/dist/shower.js"></script>
+    
 </body>
 </html>
