@@ -1,118 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>AR в устройствах Apple – Презентация</title>
-    <link rel="stylesheet" href="https://shwr.me/shower/themes/ribbon/styles.css">
+    <title>Технологии дополненной реальности в устройствах Apple</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shower/3.2.0/styles/simple.min.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .slide {
+            padding: 50px;
+            background: white;
+            color: #333;
+        }
+        
+        .slide h2 {
+            color: #000;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .slide ul {
+            margin-left: 20px;
+        }
+        
+        .slide li {
+            margin-bottom: 15px;
+        }
+        
+        .author {
+            text-align: right;
+            margin-top: 100px;
+            font-size: 1.2em;
+        }
+        
+        .thank-you {
+            text-align: center;
+            padding-top: 150px;
+        }
+        
+        .thank-you h2 {
+            font-size: 3em;
+        }
+        
+        .image-slide {
+            text-align: center;
+        }
+        
+        .image-slide img {
+            max-width: 100%;
+            max-height: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .content-with-image {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .content-with-image .text {
+            flex: 1;
+        }
+        
+        .content-with-image .image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .bullet-points {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    </style>
 </head>
-
 <body class="shower list">
 
-<section class="slide">
-    <h2>Технологии дополнённой реальности в устройствах Apple</h2>
-    <p>Васильев Сергей • ИУ3-31М</p>
-    <img src="pictures/image1.png" style="width:60%; margin-top:20px;">
-</section>
+    <header class="caption">
+        <h1>Технологии дополненной реальности в устройствах Apple</h1>
+        <p>Васильев Сергей, ИУ3-31М</p>
+    </header>
 
-<section class="slide">
-    <h2>Введение в AR</h2>
-    <p>AR накладывает цифровые объекты на реальный мир. Apple развивает AR с 2017 (ARKit).</p>
-    <p>Используется в iPhone, iPad, Mac, Vision Pro.</p>
-    <img src="pictures/image2.png" style="width:55%; margin-top:20px;">
-</section>
+    <!-- Титульный слайд -->
+    <section class="slide" id="title">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Технологии дополнённой реальности в устройствах Apple</h2>
+                <p class="author">Васильев Сергей<br>ИУ3-31М</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image1.png" alt="Технологии AR в Apple">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Подход Apple</h2>
-    <ul>
-        <li>Естественное взаимодействие</li>
-        <li>Глубокая интегтрация железа и ПО</li>
-        <li>Высокое качество отслеживания среды</li>
-        <li>Мощные инструменты для разработчиков</li>
-    </ul>
-    <img src="pictures/image3.png" style="width:50%; margin-top:20px;">
-</section>
+    <!-- Введение в AR -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Введение в AR</h2>
+                <p>Дополнённая реальность (AR) — это технология, накладывающая цифровые объекты на реальный мир.</p>
+                <p>Apple активно развивает AR с 2017 года, когда был представлен ARKit. AR интегрирована в iPhone, iPad, Mac и новую гарнитуру Vision Pro и используется в образовании, развлечениях, навигации и других областях.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image2.png" alt="Введение в AR">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>ARKit</h2>
-    <ul>
-        <li>Отслеживание движения и окружения</li>
-        <li>Определение плоскостей</li>
-        <li>Глубинные карты и машинное зрение</li>
-        <li>Поддержка 3D-сканирования</li>
-    </ul>
-    <img src="pictures/image4.png" style="width:55%; margin-top:20px;">
-</section>
+    <!-- Подход Apple к AR -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Подход Apple к AR</h2>
+                <ul class="bullet-points">
+                    <li><strong>Естественное взаимодействие:</strong> Создание максимально интуитивного взаимодействия человека и цифрового контента.</li>
+                    <li><strong>Глубокая интеграция:</strong> Тесная связь программного обеспечения с аппаратными средствами.</li>
+                    <li><strong>Высокое качество:</strong> Точное отслеживание движения и распознавание объектов в пространстве.</li>
+                    <li><strong>Мощные инструменты:</strong> Предоставление разработчикам простых и мощных инструментов для создания AR-приложений.</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="pictures/image3.png" alt="Подход Apple к AR">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>RealityKit и инструменты</h2>
-    <ul>
-        <li>Фотореалистичные материалы</li>
-        <li>Физика и анимации</li>
-        <li>Reality Composer Pro</li>
-    </ul>
-    <img src="pictures/image5.png" style="width:50%; margin-top:20px;">
-</section>
+    <!-- ARKit: Основной фреймворк -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>ARKit: Основной фреймворк</h2>
+                <p>ARKit — это главный инструмент Apple для работы с дополнённой реальностью. Он объединяет алгоритмы отслеживания пространства, распознавания плоскостей и анализа изображения.</p>
+                <p>С его помощью приложения могут точно определять, где находятся поверхности, и размещать на них виртуальные объекты. Он также поддерживает машинное зрение, карты глубины и 3D-сканирование.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image4.png" alt="ARKit фреймворк">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Аппаратная база</h2>
-    <ul>
-        <li>Камеры высокого разрешения</li>
-        <li>Гироскопы и акселерометры</li>
-        <li>Датчики движения</li>
-    </ul>
-    <img src="pictures/image6.png" style="width:55%; margin-top:20px;">
-</section>
+    <!-- RealityKit и инструменты разработки -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>RealityKit и инструменты разработки</h2>
+                <h3>RealityKit</h3>
+                <p>Высокоуровневая библиотека для создания реалистичных 3D-сцен. Включает физику, анимации и фотореалистичные материалы.</p>
+                
+                <h3>Reality Composer Pro</h3>
+                <p>Визуальный редактор, который позволяет создавать сложные AR-сцены без программирования, используя drag-and-drop.</p>
+                
+                <h3>Результат</h3>
+                <p>Значительное снижение порога входа, делая AR-разработку доступной большему количеству специалистов.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image5.png" alt="Инструменты разработки">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>LiDAR</h2>
-    <ul>
-        <li>Точные 3D карты глубины</li>
-        <li>Сканирование помещения</li>
-        <li>Точное размещение виртуальных объектов</li>
-    </ul>
-    <img src="pictures/image7.png" style="width:60%; margin-top:20px;">
-</section>
+    <!-- Аппаратная база: Камеры и датчики -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Аппаратная база: Камеры и датчики</h2>
+                <p>Высокое качество AR в устройствах Apple обеспечивается мощной аппаратной базой: качественными камерами, гироскопами, акселерометрами и датчиками движения.</p>
+                <p>Эти компоненты позволяют устройству точно понимать, где оно находится в пространстве и как движется. Благодаря этому виртуальные объекты выглядят стабильными и естественно вписываются в реальность.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image6.png" alt="Аппаратная база">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Apple Vision Pro</h2>
-    <ul>
-        <li>Отслеживание рук, глаз и головы</li>
-        <li>Смешанная реальность</li>
-        <li>Новая ОС visionOS</li>
-    </ul>
-    <img src="pictures/image15.jpeg" style="width:60%; margin-top:20px;">
-</section>
+    <!-- Ключевой элемент: LiDAR-сканер -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Ключевой элемент: LiDAR-сканер</h2>
+                <p>Одним из ключевых аппаратных элементов современных iPhone Pro и iPad Pro является LiDAR-сканер.</p>
+                <p>LiDAR измеряет расстояние до объектов с помощью лазерных импульсов и создаёт точную карту глубины помещения. Это позволяет мгновенно и очень точно понимать геометрию окружения.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image7.png" alt="LiDAR сканер">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Применения AR</h2>
-    <ul>
-        <li>Образование</li>
-        <li>Дизайн и E-commerce</li>
-        <li>Игры и развлечения</li>
-        <li>Инженерия и медицина</li>
-    </ul>
-    <img src="pictures/image10.png" style="width:55%; margin-top:20px;">
-</section>
+    <!-- Apple Vision Pro и пространственные вычисления -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Apple Vision Pro и пространственные вычисления</h2>
+                <p>Это гарнитура, объединяющая AR и VR. Виртуальные элементы накладываются на реальный мир, но могут и полностью его заменять.</p>
+                <p>Vision Pro отслеживает движение глаз, рук и головы, что позволяет взаимодействовать с интерфейсом без контроллеров. Эта платформа открывает новые возможности для работы, обучения и развлечений.</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image8.png" alt="Apple Vision Pro">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Преимущества Apple</h2>
-    <ul>
-        <li>Интеграция ARKit и LiDAR</li>
-        <li>Экосистема устройств</li>
-        <li>Точный трекинг</li>
-        <li>Приватность данных</li>
-    </ul>
-    <img src="pictures/image12.png" style="width:55%; margin-top:20px;">
-</section>
+    <!-- Примеры применения AR в экосистеме Apple -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Примеры применения AR в экосистеме Apple</h2>
+                <ul class="bullet-points">
+                    <li><strong>Образование:</strong> Визуализация анатомии, космоса, исторических объектов.</li>
+                    <li><strong>Дизайн и E-commerce:</strong> Размещение мебели и виртуальная примерка товаров.</li>
+                    <li><strong>Игры и развлечения:</strong> Создание интерактивных миров на основе реальной среды.</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="pictures/image9.png" alt="Примеры применения AR">
+            </div>
+        </div>
+    </section>
 
-<section class="slide">
-    <h2>Спасибо!</h2>
-    <p>Вопросы?</p>
-    <img src="pictures/image23.png" style="width:50%; margin-top:20px;">
-</section>
+    <!-- Преимущества подхода Apple -->
+    <section class="slide">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Преимущества подхода Apple</h2>
+                <h3>Ключевые преимущества</h3>
+                <h4>Сильные стороны экосистемы</h4>
+                <ul class="bullet-points">
+                    <li><strong>Интеграция:</strong> Глубокая интеграция ПО (ARKit) и аппаратных средств (LiDAR) обеспечивает высокую точность и стабильность.</li>
+                    <li><strong>Экосистема:</strong> Множество устройств и мощные инструменты для разработчиков способствуют быстрому росту.</li>
+                    <li><strong>Приватность:</strong> Высокое внимание к приватности данных пользователя повышает доверие.</li>
+                </ul>
+            </div>
+            <div class="image">
+                <img src="pictures/image10.png" alt="Преимущества Apple">
+            </div>
+        </div>
+    </section>
 
-<script src="https://shwr.me/shower/shower.min.js"></script>
+    <!-- Завершающий слайд -->
+    <section class="slide thank-you">
+        <div class="content-with-image">
+            <div class="text">
+                <h2>Спасибо</h2>
+                <p>Вопросы?</p>
+            </div>
+            <div class="image">
+                <img src="pictures/image11.png" alt="Спасибо за внимание">
+            </div>
+        </div>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shower/3.2.0/shower.min.js"></script>
 </body>
 </html>
